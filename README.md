@@ -7,7 +7,7 @@ project for studying llms with strategy RAG
 ### configure
 `python3 -m venv .venv`
 
-``source /bim/activate``
+``source venv/bin/activate``
 
 ### adding ollama in docker
 ``docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama``
