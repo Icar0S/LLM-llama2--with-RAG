@@ -2,7 +2,10 @@
 .DS_Store
 backup
 chroma
-/data
+venv
+.venv
+data/*.pdf
+data/*.txt
 # Logs
 logs
 *.log
