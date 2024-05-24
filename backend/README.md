@@ -1,14 +1,41 @@
-# LLM-llama2--with-RAG
+# LLM-llama2-with-RAG
 Cloud Migratin article for ICAI_2024
 
 project for studying llms with strategy RAG 
 
-## running
-pip install venv .venv
+## Running llm
 
+### First step up container
+```
 docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+```
+
+### Second step prepare models
+```
 ollama pull nomic-embed-text
 ollama pull llama2
+```
 
-python populate_database.py
-python query_data.py "make question here"
+## Get Started
+
+### Create env
+```python -m venv venv```
+
+### Create install libs
+```pip install -r .\backend\requirements.txt```
+
+## CLI commands
+
+### Populate database
+```python .\backend\populate_database.py```
+
+### Make a question
+```python .\backend\query_data.py "make question here"```
+
+## Execute API
+
+### Local
+```python .\backend\src\app.py```
+
+### Like a server
+```python .\backend\server.py```
