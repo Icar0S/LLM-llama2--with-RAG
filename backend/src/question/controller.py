@@ -6,4 +6,4 @@ question_router = APIRouter(prefix="/question", tags=["Question"])
 
 @question_router.get("/{question}")
 def response_question(question: str):
-    return {"question": question, "response": query_rag(question)}
+    return {"question": question,  **query_rag(question)}

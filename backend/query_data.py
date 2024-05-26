@@ -9,7 +9,7 @@ def main():
     
     query_text = args.query_text
     
-    query_rag(query_text)
+    print(query_rag(query_text).get("formatted_response"))
 
 if __name__ == "__main__":
     main()
