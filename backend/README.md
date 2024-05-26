@@ -20,22 +20,23 @@ ollama pull llama2
 
 ### Create env
 ```python -m venv venv```
+`source venv/Scripts/activate`
 
 ### Create install libs
-```pip install -r .\backend\requirements.txt```
+```pip install -r ./backend/requirements.txt```
 
 ## CLI commands
 
 ### Populate database
-```python .\backend\populate_database.py```
+```python ./backend/populate_chomadb.py```
 
 ### Make a question
-```python .\backend\query_data.py "make question here"```
+```python ./backend/query_data.py "make question here"```
 
 ## Execute API
 
 ### Local
-```python .\backend\src\app.py```
+```python ./backend/src\app.py```
 
 ### Like a server
-```python .\backend\server.py```
+```python ./backend/server.py```
