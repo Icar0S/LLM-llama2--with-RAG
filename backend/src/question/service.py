@@ -27,10 +27,30 @@ def query_rag(query_text: str):
     sources = [doc.metadata.get("id", None) for doc, _score in results]
     formatted_response = f"Response: {response_text}\nSources: {sources}"
 
+    formatted_sources = extract_unique_items_docs_names(sources)
+
     res = {
         "response": response_text,
-        "sources": sources,
-        "formatted_response": formatted_response
+        "sources": formatted_sources,
+        "formatted_response": formatted_response,
     }
 
     return res
+
+
+def extract_unique_items_docs_names(source_list: list[str]) -> set[str]:
+    # Set para armazenar valores únicos
+    unique_items = set()
+
+    for item in source_list:
+        # Dividir a string no primeiro espaço após 'data\'
+        parts = item.split("data\\", 1)
+        if len(parts) == 2:
+            # Extrair a parte após 'data\'
+            file_part = parts[1]
+            # Remover a parte do final ':x:x'
+            file_name = file_part.rsplit(".pdf:", 1)[0]
+            # Adicionar ao set
+            unique_items.add(file_name)
+
+    return unique_items
